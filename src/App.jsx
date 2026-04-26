@@ -9,7 +9,7 @@ import './style.css'
 export default function App() {
   return (
     <TaskProvider>
-      <BrowserRouter basename="/fishytodo">
+      <BrowserRouter basename={import.meta.env.PROD ? '/FishyTodo' : '/'}>
         <div className="app">
           <Navbar />
           <main className="main-content">
