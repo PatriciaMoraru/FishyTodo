@@ -1,9 +1,10 @@
+import TankBar from './TankBar'
 import './TankView.css'
 
 export default function TankView() {
   return (
     <div className="tank">
-      <p>Tank is ready 🐠</p>
+      <TankBar />
     </div>
   )
 }

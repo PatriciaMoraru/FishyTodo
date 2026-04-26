@@ -1,7 +1,7 @@
 .tank {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background-color: #c9dfe4;
-    overflow: hidden;
-  }
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #c9dfe4;
+  overflow: hidden;
+}
