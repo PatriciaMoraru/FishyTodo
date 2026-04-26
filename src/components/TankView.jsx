@@ -1,8 +1,18 @@
 import './TankView.css'
 import { useState } from 'react'
+import { NewTodoForm } from './NewTodoForm'
 
 export default function TankView() {
   const [todos, setTodos] = useState([])
+
+  function addTodo(title) {
+    setTodos(currentTodos => {
+      return [
+          ...currentTodos,
+          { id: crypto.randomUUID(), title, completed: false },
+      ]
+    })
+  }
 
   function toggleTodo(id, completed){
     setTodos(currentTodos => {
@@ -30,25 +40,9 @@ export default function TankView() {
         <p className="tank-sub">Coming in Issue #2.</p>
       </div>
 
+      <NewTodoForm onSubmit={addTodo} />
       <h1 className="header">Todo List</h1>
-      <ul className="list">
-        {todos.length === 0 && "No Todos"}
-        {todos.map(todo => {
-          return (
-            <li key={todo.id}>
-              <label>
-                <input 
-                  type="checkbox" 
-                  checked={todo.completed} 
-                  onChange={event => toggleTodo(todo.id, event.target.checled)}
-                />
-                {todo.title}
-              </label>
-              <button onClick={() => deleteTodo(todo.id)} className="btn btn-danger">Delete</button>
-            </li>
-          )
-        }) }
-      </ul>
+      <TodoList />
     </div>
   )
 }
