@@ -1,0 +1,7 @@
+.fish {
+    position: absolute;
+    width: 12rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease;
+}
