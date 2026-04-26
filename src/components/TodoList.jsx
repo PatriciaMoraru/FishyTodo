@@ -3,11 +3,12 @@ import { useTaskContext } from '../context/TaskContext'
 
 export function TodoList() {
     const { tasks, completeTask, removeTask } = useTaskContext()
+    const activeTasks = tasks.filter(task => !task.completed)
 
     return (
         <ul className="list">
-        {tasks.length === 0 && "No Todos"}
-        {tasks.map(task => (
+        {activeTasks.length === 0 && "No Todos"}
+        {activeTasks.map(task => (
             <TodoItem
                 key={task.id}
                 {...task}
