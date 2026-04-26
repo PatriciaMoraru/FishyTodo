@@ -13,10 +13,10 @@ export function TaskProvider({ children }) {
     localStorage.setItem('ITEMS', JSON.stringify(tasks))
   }, [tasks])
 
-  function addTask(title) {
+  function addTask(title, priority) {
     setTasks(current => [
       ...current,
-      { id: crypto.randomUUID(), title, completed: false },
+      { id: crypto.randomUUID(), title, priority, completed: false },
     ])
   }
 
