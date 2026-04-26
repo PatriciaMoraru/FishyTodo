@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useTaskContext } from '../context/TaskContext'
 
-export function NewTodoForm({ onSubmit }) {
+export function NewTodoForm() {
+    const { addTask } = useTaskContext()
     const [newItem, setNewItem] = useState('')
 
     function handleSubmit(event) {
@@ -8,7 +10,7 @@ export function NewTodoForm({ onSubmit }) {
 
         if (newItem === "") return
 
-        onSubmit(newItem)
+        addTask(newItem)
 
         setNewItem('')
     }
