@@ -1,19 +1,20 @@
 import { TodoItem } from './TodoItem'
+import { useTaskContext } from '../context/TaskContext'
 
-export function TodoList({ todos, toggleTodo, deleteTodo }) {
+export function TodoList() {
+    const { tasks, completeTask, removeTask } = useTaskContext()
+
     return (
         <ul className="list">
-        {todos.length === 0 && "No Todos"}
-        {todos.map(todo => {
-          return (
+        {tasks.length === 0 && "No Todos"}
+        {tasks.map(task => (
             <TodoItem
-                {...todo}
-                key={todo.id} 
-                toggleTodo={toggleTodo}
-                deleteTodo={deleteTodo}
+                key={task.id}
+                {...task}
+                completeTask={completeTask}
+                removeTask={removeTask}
             />
-          )
-        }) }
+        ))}
       </ul>
     )
 }
