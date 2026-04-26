@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import TankView from './components/TankView'
 import SettingsView from './components/SettingsView'
 import './App.css'
+import './style.css'
 
 export default function App() {
   return (
