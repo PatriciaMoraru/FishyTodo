@@ -1,4 +1,4 @@
-export function TodoItem({ completed, id, title, completeTask, removeTask }) {
+export function TodoItem({ completed, id, title, priority, completeTask, removeTask }) {
     return (
         <li>
             <label>
@@ -9,6 +9,7 @@ export function TodoItem({ completed, id, title, completeTask, removeTask }) {
                 />
                 {title}
             </label>
+            <span className={`priority-badge priority-${priority}`}>{priority}</span>
             <button
                 onClick={() => removeTask(id)}
                 className="btn btn-danger"
