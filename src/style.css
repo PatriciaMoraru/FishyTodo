@@ -1,67 +1,170 @@
 /*
+════════════════════════════════════════════════════
+  FishyTodo · global stylesheet
+  Watercolor-notebook aesthetic + Sunset Cream palette
+════════════════════════════════════════════════════
+
 --- 01 TYPOGRAPHY SYSTEM
 
-- Font sizes (rem)
-1.0 / 1.2 / 1.4 / 1.6 / 1.8 / 2.0 / 2.4 / 3.0 / 3.6 / 4.4 / 5.2 / 6.2 / 7.4 / 8.6 / 9.8
+- Fonts
+  Display / UI:  Caveat (handwritten)
+  Body / Labels: Patrick Hand (casual print)
+  Base:          Quicksand (clean sans)
+
+- Font sizes (rem) — html base: 62.5% → 1rem = 10px
+  1.0 / 1.2 / 1.4 / 1.6 / 1.8 / 2.0 / 2.4 / 3.0 / 3.6 / 4.4
 
 - Font weights
-Default: 400
-Medium: 500
-Semi-bold: 600
-Bold: 700
+  Default:   400
+  Medium:    500
+  Semi-bold: 600
+  Bold:      700
 
 - Line heights
-Default: 1
-Small: 1.05
-Medium: 1.2
-Paragraph default: 1.6
+  Default:   1
+  Small:     1.05
+  Medium:    1.2
+  Paragraph: 1.6
 
-- Letter spacing
--0.05rem
-0.075rem
+--- 02 COLORS  (Sunset Cream palette)
 
---- 02 COLORS
-
-- Primary: #c9dfe4 (light water)
-- Tints: #eaf3f5
-- Shades: #6fa3b0
-- Accents: #e8935a (coral)
-- Greys:
-#555
-#333
+  --paper:       #fdf0e2   warm off-white background
+  --paper-warm:  #f9dec3   slightly deeper warm paper
+  --paper-card:  #fffaf0   card / panel surface
+  --ink:         #3d2418   deep brown text
+  --ink-soft:    #6e4e3a   secondary text
+  --line:        rgba(110, 78, 58, 0.18)   subtle borders
+  --line-strong: rgba(110, 78, 58, 0.32)   stronger borders
+  --accent:      #c85a3a   terracotta primary action
+  --accent-soft: #e08868   softer terracotta
+  --sec:         #a890c4   dusty lavender secondary
+  --tert:        #f0b89c   soft peach tertiary
+  --green:       #8aa898   sage accent
 
 --- 03 SHADOWS
 
-- Soft: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.08)
-- Medium: 0 0.6rem 1.6rem rgba(0, 0, 0, 0.12)
+  --shadow-sm:   0 2px 6px  rgba(110, 78, 58, 0.10)
+  --shadow-md:   0 4px 14px rgba(110, 78, 58, 0.12)
+  --shadow-lg:   0 10px 28px rgba(110, 78, 58, 0.14)
 
 --- 04 BORDER RADIUS
 
-Default: 0.8rem
-Pill: 9999px
+  Default: 12px
+  Large:   18px
+  Pill:    50px
 
---- 05 WHITESPACE
+--- 05 WHITESPACE  (rem spacing scale)
 
-- Spacing system (rem)
-0.2 / 0.4 / 0.8 / 1.2 / 1.6 / 2.4 / 3.2 / 4.8 / 6.4 / 8.0 / 9.6 / 12.8
-
+  0.2 / 0.4 / 0.8 / 1.2 / 1.6 / 2.4 / 3.2 / 4.8 / 6.4 / 8.0 / 9.6 / 12.8
 */
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    font-size: 62.5%;
-    overflow-x: hidden;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color: #333;
-    overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  overflow: hidden;
+
+  /* Sunset Cream palette tokens */
+  --paper:        #fdf0e2;
+  --paper-warm:   #f9dec3;
+  --paper-card:   #fffaf0;
+  --ink:          #3d2418;
+  --ink-soft:     #6e4e3a;
+  --line:         rgba(110, 78, 58, 0.18);
+  --line-strong:  rgba(110, 78, 58, 0.32);
+  --shadow-sm:    0 2px 6px  rgba(110, 78, 58, 0.10);
+  --shadow-md:    0 4px 14px rgba(110, 78, 58, 0.12);
+  --shadow-lg:    0 10px 28px rgba(110, 78, 58, 0.14);
+  --accent:       #c85a3a;
+  --accent-soft:  #e08868;
+  --sec:          #a890c4;
+  --tert:         #f0b89c;
+  --green:        #8aa898;
+
+  background: var(--paper);
+  color: var(--ink);
+}
+
+/* ── shared button ───────────────────────────────── */
+.btn {
+  font-family: 'Caveat', cursive;
+  border: 1.5px solid var(--line);
+  border-radius: 50px;
+  padding: 0.8rem 2.6rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: var(--paper-card);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  user-select: none;
+}
+.btn:hover  { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn:active { transform: translateY(1px);  box-shadow: var(--shadow-sm); }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(200, 90, 58, 0.28);
+}
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(200, 90, 58, 0.36); }
+
+.btn-lav {
+  background: var(--sec);
+  color: var(--paper);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(168, 144, 196, 0.28);
+}
+.btn-lav:hover { box-shadow: 0 6px 20px rgba(168, 144, 196, 0.36); }
+
+.btn-ghost {
+  background: var(--paper-card);
+  color: var(--ink);
+}
+
+/* ── animations ──────────────────────────────────── */
+@keyframes pop-in {
+  0%   { transform: scale(0)    rotate(-20deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(5deg);   opacity: 1; }
+  100% { transform: scale(1)    rotate(0);      opacity: 1; }
+}
+
+@keyframes float-up {
+  0%   { opacity: 1; transform: translateY(0)    scale(1); }
+  60%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20rem) scale(0.5); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(0.8rem); }
+  to   { opacity: 1; transform: translateY(0);      }
+}
+
+@keyframes scrim-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pop-menu {
+  0%   { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+  60%  { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
 }
