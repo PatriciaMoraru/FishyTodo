@@ -22,7 +22,7 @@ function getFishImage(id) {
   return FISH_IMAGES[hash]
 }
 
-export default function Fish({ task, paused, onClick }) {
+export default function Fish({ task, paused, completing, onClick }) {
   const fishRef = useRef(null)
   const pos = useRef(null)
   const vel = useRef(null)
@@ -67,13 +67,16 @@ export default function Fish({ task, paused, onClick }) {
     return () => cancelAnimationFrame(rafId.current)
   }, [])
 
+  const classes = [
+    'fish-roam',
+    paused     ? 'selected'   : '',
+    completing ? 'completing' : '',
+  ].filter(Boolean).join(' ')
+
   return (
-    <img
-      ref={fishRef}
-      className="fish"
-      src={getFishImage(task.id)}
-      alt={task.title}
-      onClick={onClick}
-    />
+    <div ref={fishRef} className={classes} onClick={onClick}>
+      <img src={getFishImage(task.id)} alt={task.title} style={{ width: '100%', display: 'block' }} />
+      <span className="fish-label">{task.title}</span>
+    </div>
   )
 }

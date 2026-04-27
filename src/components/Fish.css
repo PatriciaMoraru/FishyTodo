@@ -1,7 +1,40 @@
-.fish {
-    position: absolute;
-    width: 12rem;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s ease;
+.fish-roam {
+  position: absolute;
+  width: 12rem;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 4px 8px rgba(110, 78, 58, 0.18));
+  transition: filter 0.2s;
+  z-index: 4;
+}
+
+.fish-roam:hover {
+  filter: drop-shadow(0 4px 8px rgba(110, 78, 58, 0.18)) brightness(1.08);
+}
+
+.fish-roam.selected {
+  filter: drop-shadow(0 0 1.8rem var(--accent)) brightness(1.05);
+  z-index: 30;
+}
+
+.fish-roam.completing {
+  animation: float-up 1.6s ease-in forwards;
+  pointer-events: none;
+}
+
+.fish-label {
+  position: absolute;
+  bottom: -2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.2rem 1.2rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink);
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  pointer-events: none;
 }
