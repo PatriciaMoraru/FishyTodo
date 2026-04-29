@@ -1,26 +1,10 @@
 import { useEffect, useRef } from 'react'
 import './Fish.css'
+import { getFishImage } from '../utils/fishImages'
 
-import fish1 from '../assets/fish1.png'
-import fish2 from '../assets/fish2.png'
-import fish3 from '../assets/fish3.png'
-import fish4 from '../assets/fish4.png'
-import fish5 from '../assets/fish5.png'
-import fish6 from '../assets/fish6.png'
-import fish7 from '../assets/fish7.png'
-
-const FISH_IMAGES = [fish1, fish2, fish3, fish4, fish5, fish6, fish7]
 const FISH_WIDTH = 120
 const FISH_HEIGHT = 80
 const SPEED = 2
-
-function getFishImage(id) {
-  let hash = 0
-  for (let i = 0; i < id.length; i++) {
-    hash = (hash + id.charCodeAt(i)) % FISH_IMAGES.length
-  }
-  return FISH_IMAGES[hash]
-}
 
 export default function Fish({ task, paused, completing, onClick }) {
   const fishRef = useRef(null)
