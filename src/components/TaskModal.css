@@ -1,0 +1,129 @@
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(61, 36, 24, 0.35);
+  backdrop-filter: blur(2px);
+  z-index: 20;
+  animation: scrim-in 0.2s ease-out;
+}
+
+.action-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36rem;
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  padding: 2.6rem 2.8rem;
+  box-shadow: var(--shadow-lg);
+  z-index: 31;
+  transform: translate(-50%, -50%);
+  animation: pop-menu 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.action-card .ac-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.4rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.8rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.action-card .ac-fish {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1.5px dashed var(--line);
+  margin-bottom: 1.6rem;
+}
+
+.action-card .ac-fish img {
+  width: 6.4rem;
+  height: auto;
+}
+
+.action-card .ac-task {
+  font-family: 'Caveat', cursive;
+  font-size: 2.6rem;
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.action-card .ac-meta {
+  margin-top: 0.4rem;
+}
+
+.priority-badge {
+  display: inline-block;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+  border: 1.5px solid;
+}
+
+.badge-low    { background: #d4edda; border-color: #a3cfb0; color: #2d6a4f; }
+.badge-medium { background: #fff3cd; border-color: #f0c040; color: #7d5a00; }
+.badge-high   { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
+
+.action-card .ac-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-card .ac-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-card);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.7rem;
+  color: var(--ink);
+  text-align: left;
+  width: 100%;
+}
+
+.action-card .ac-btn:hover  { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.action-card .ac-btn:active { transform: translateY(1px);  box-shadow: var(--shadow-sm); }
+
+.action-card .ac-btn.primary {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(200, 90, 58, 0.28);
+}
+.action-card .ac-btn.primary:hover { box-shadow: 0 6px 20px rgba(200, 90, 58, 0.36); }
+
+.action-card .ac-btn.lav {
+  background: var(--sec);
+  color: var(--paper);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(168, 144, 196, 0.28);
+}
+.action-card .ac-btn.lav:hover { box-shadow: 0 6px 20px rgba(168, 144, 196, 0.36); }
+
+.action-card .ac-btn .em {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.action-card .ac-btn .sub {
+  display: block;
+  font-size: 1.2rem;
+  font-family: 'Quicksand', sans-serif;
+  opacity: 0.75;
+  margin-top: 0.1rem;
+}
