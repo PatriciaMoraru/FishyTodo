@@ -47,7 +47,7 @@ export default function TankView() {
       {selectedTask && (
         <TaskModal
           task={selectedTask}
-          fishImage={getFishImage(selectedTask.id)}
+          fishImage={getFishImage(selectedTask.priority)}
           onComplete={handleComplete}
           onRelease={handleRelease}
         />
