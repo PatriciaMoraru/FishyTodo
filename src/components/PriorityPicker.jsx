@@ -3,9 +3,11 @@ import { fishByPriority } from '../utils/fishImages'
 import './PriorityPicker.css'
 
 const OPTIONS = [
-  { value: 'low',    label: 'Low',    desc: 'slow swimmer',   emoji: '🐠' },
-  { value: 'medium', label: 'Medium', desc: 'regular pace',   emoji: '🐟' },
-  { value: 'high',   label: 'High',   desc: 'fast & urgent',  emoji: '⚡' },
+  { value: 'tiny',   label: 'Tiny',   desc: '5 min'   },
+  { value: 'small',  label: 'Small',  desc: '15 min'  },
+  { value: 'medium', label: 'Medium', desc: '30 min'  },
+  { value: 'big',    label: 'Big',    desc: '1 hour'  },
+  { value: 'whale',  label: 'Whale',  desc: 'all day' },
 ]
 
 export default function PriorityPicker({ value, onChange }) {
@@ -38,6 +40,13 @@ export default function PriorityPicker({ value, onChange }) {
         <span className="pill-label">{current.label}</span>
         <span className="pill-arrow">{open ? '▴' : '▾'}</span>
       </button>
+
+      {/* hidden preload — forces browser to cache all fish images on first render */}
+      <div style={{ display: 'none' }} aria-hidden="true">
+        {OPTIONS.map(opt => (
+          <img key={opt.value} src={fishByPriority[opt.value]} alt="" />
+        ))}
+      </div>
 
       {open && (
         <div className="priority-popover">

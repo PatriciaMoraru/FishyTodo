@@ -22,9 +22,11 @@
   box-shadow: var(--shadow-sm);
 }
 
-.priority-pill.priority-low    { background: #d4edda; border-color: #a3cfb0; color: #2d6a4f; }
+.priority-pill.priority-tiny   { background: #e8f5e9; border-color: #c8e6c9; color: #2e7d32; }
+.priority-pill.priority-small  { background: #d4edda; border-color: #a3cfb0; color: #2d6a4f; }
 .priority-pill.priority-medium { background: #fff3cd; border-color: #f0c040; color: #7d5a00; }
-.priority-pill.priority-high   { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
+.priority-pill.priority-big    { background: #ffe0cc; border-color: #f0a875; color: #8b4513; }
+.priority-pill.priority-whale  { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
 
 .pill-fish {
   width: 2.8rem;
