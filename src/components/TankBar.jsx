@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext'
+import PriorityPicker from './PriorityPicker'
 import './TankBar.css'
 
 export default function TankBar() {
@@ -28,17 +29,7 @@ export default function TankBar() {
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-            <div className={`tank-priority-wrapper priority-${priority}`}>
-                <select
-                    className={`tank-priority priority-${priority}`}
-                    value={priority}
-                    onChange={e => setPriority(e.target.value)}
-                >
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
-            </div>
+            <PriorityPicker value={priority} onChange={setPriority} />
             <button className="tank-btn" onClick={handleRelease}>
                 Release fish
             </button>
