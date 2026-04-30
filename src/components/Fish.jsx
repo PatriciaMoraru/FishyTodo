@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react'
 import './Fish.css'
-import { getFishImage } from '../utils/fishImages'
+import { getFishImage, getFishSpeed } from '../utils/fishImages'
 
 const FISH_WIDTH = 120
 const FISH_HEIGHT = 80
-const SPEED = 2
 
 export default function Fish({ task, paused, completing, onClick }) {
   const fishRef = useRef(null)
+  const imgRef  = useRef(null)
   const pos = useRef(null)
   const vel = useRef(null)
   const rafId = useRef(null)
@@ -18,13 +18,14 @@ export default function Fish({ task, paused, completing, onClick }) {
   }, [paused])
 
   useEffect(() => {
+    const speed = getFishSpeed(task.priority)
     pos.current = {
       x: Math.random() * (window.innerWidth - FISH_WIDTH),
       y: Math.random() * (window.innerHeight - FISH_HEIGHT),
     }
     vel.current = {
-      dx: (Math.random() < 0.5 ? 1 : -1) * SPEED,
-      dy: (Math.random() < 0.5 ? 1 : -1) * SPEED,
+      dx: (Math.random() < 0.5 ? 1 : -1) * speed,
+      dy: (Math.random() < 0.5 ? 1 : -1) * speed,
     }
 
     function animate() {
@@ -40,16 +41,17 @@ export default function Fish({ task, paused, completing, onClick }) {
         if (pos.current.y <= 0)    { pos.current.y = 0;    vel.current.dy =  Math.abs(vel.current.dy) }
         if (pos.current.y >= maxY) { pos.current.y = maxY; vel.current.dy = -Math.abs(vel.current.dy) }
 
-        fishRef.current.style.left      = pos.current.x + 'px'
-        fishRef.current.style.top       = pos.current.y + 'px'
-        fishRef.current.style.transform = `scaleX(${vel.current.dx > 0 ? 1 : -1})`
+        const x = Math.round(pos.current.x)
+        const y = Math.round(pos.current.y)
+        fishRef.current.style.transform    = `translate(${x}px, ${y}px)`
+        imgRef.current.style.transform     = `scaleX(${vel.current.dx > 0 ? 1 : -1})`
       }
       rafId.current = requestAnimationFrame(animate)
     }
 
     rafId.current = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(rafId.current)
-  }, [])
+  }, [task.priority])
 
   const classes = [
     'fish-roam',
@@ -59,7 +61,7 @@ export default function Fish({ task, paused, completing, onClick }) {
 
   return (
     <div ref={fishRef} className={classes} onClick={onClick}>
-      <img src={getFishImage(task.id)} alt={task.title} style={{ width: '100%', display: 'block' }} />
+      <img ref={imgRef} src={getFishImage(task.priority)} alt={task.title} style={{ width: '100%', display: 'block' }} />
       <span className="fish-label">{task.title}</span>
     </div>
   )
