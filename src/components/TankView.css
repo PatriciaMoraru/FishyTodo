@@ -12,10 +12,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    180deg,
-    transparent 0 92px,
-    rgba(110, 78, 58, 0.03) 92px 93px
-  );
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='140'%3E%3Cpath d='M0 70 Q75 50 150 70 Q225 90 300 70' stroke='rgba(110,78,58,.05)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-size: 300px 140px;
+  background-repeat: repeat;
   pointer-events: none;
 }
