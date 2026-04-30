@@ -12,10 +12,15 @@ export default function Fish({ task, paused, completing, onClick }) {
   const vel = useRef(null)
   const rafId = useRef(null)
   const pausedRef = useRef(paused)
+  const completingRef = useRef(completing)
 
   useEffect(() => {
     pausedRef.current = paused
   }, [paused])
+
+  useEffect(() => {
+    completingRef.current = completing
+  }, [completing])
 
   useEffect(() => {
     const speed = getFishSpeed(task.priority)
@@ -29,7 +34,7 @@ export default function Fish({ task, paused, completing, onClick }) {
     }
 
     function animate() {
-      if (!pausedRef.current && fishRef.current) {
+      if (!pausedRef.current && !completingRef.current && fishRef.current) {
         pos.current.x += vel.current.dx
         pos.current.y += vel.current.dy
 
@@ -53,16 +58,15 @@ export default function Fish({ task, paused, completing, onClick }) {
     return () => cancelAnimationFrame(rafId.current)
   }, [task.priority])
 
-  const classes = [
-    'fish-roam',
-    paused     ? 'selected'   : '',
-    completing ? 'completing' : '',
-  ].filter(Boolean).join(' ')
+  const containerClass = ['fish-roam', paused ? 'selected' : ''].filter(Boolean).join(' ')
+  const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
 
   return (
-    <div ref={fishRef} className={classes} onClick={onClick}>
-      <img ref={imgRef} src={getFishImage(task.priority)} alt={task.title} style={{ width: '100%', display: 'block' }} />
-      <span className="fish-label">{task.title}</span>
+    <div ref={fishRef} className={containerClass} onClick={onClick}>
+      <div className={innerClass}>
+        <img ref={imgRef} src={getFishImage(task.priority)} alt={task.title} style={{ width: '100%', display: 'block' }} />
+        <span className="fish-label">{task.title}</span>
+      </div>
     </div>
   )
 }
