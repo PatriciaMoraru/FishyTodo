@@ -21,8 +21,15 @@
 }
 
 .fish-roam.completing {
-  animation: float-up 1.6s ease-in forwards;
   pointer-events: none;
+}
+
+.fish-inner {
+  position: relative;
+}
+
+.fish-inner.completing {
+  animation: float-up 1.6s ease-in forwards;
 }
 
 .fish-label {
