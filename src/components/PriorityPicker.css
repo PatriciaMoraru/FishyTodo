@@ -28,6 +28,12 @@
 .priority-pill.priority-big    { background: #ffe0cc; border-color: #f0a875; color: #8b4513; }
 .priority-pill.priority-whale  { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
 
+[data-theme="dark"] .priority-pill.priority-tiny   { background: #1a2e1a; border-color: #3a6a3a; color: #88cc88; }
+[data-theme="dark"] .priority-pill.priority-small  { background: #1a2e22; border-color: #3a6a4e; color: #88ccaa; }
+[data-theme="dark"] .priority-pill.priority-medium { background: #2e2510; border-color: #6a5510; color: #d4aa55; }
+[data-theme="dark"] .priority-pill.priority-big    { background: #2e1e10; border-color: #8b4a20; color: #d48055; }
+[data-theme="dark"] .priority-pill.priority-whale  { background: #2e1218; border-color: #8b2a38; color: #e07080; }
+
 .pill-fish {
   width: 2.8rem;
   height: auto;
