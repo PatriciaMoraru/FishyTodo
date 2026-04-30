@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext'
+import { useTheme } from '../context/ThemeContext'
 import TankBar from './TankBar'
 import Fish from './Fish'
 import { getFishImage } from '../utils/fishImages'
@@ -9,6 +10,7 @@ import './TankView.css'
 
 export default function TankView() {
   const { tasks, completeTask } = useTaskContext()
+  const { focusMode, toggleFocusMode } = useTheme()
   const activeTasks = tasks.filter(t => !t.completed)
   const [selectedTaskId, setSelectedTaskId] = useState(null)
   const [completingTaskId, setCompletingTaskId] = useState(null)
@@ -37,12 +39,20 @@ export default function TankView() {
     <div className="tank">
       <TankBar />
       <FishLegend />
+      <button
+        className={`icon-btn focus-toggle ${focusMode ? 'active' : ''}`}
+        onClick={toggleFocusMode}
+        title="Focus mode"
+      >
+        ◎
+      </button>
       {activeTasks.map(task => (
         <Fish
           key={task.id}
           task={task}
           paused={task.id === selectedTaskId}
           completing={task.id === completingTaskId}
+          dimmed={focusMode && selectedTaskId !== null && task.id !== selectedTaskId}
           onClick={() => handleFishClick(task.id)}
         />
       ))}
