@@ -3,11 +3,13 @@ import Navbar from './components/Navbar'
 import TankView from './components/TankView'
 import SettingsView from './components/SettingsView'
 import { TaskProvider } from './context/TaskContext'
+import { ThemeProvider } from './context/ThemeContext'
 import './App.css'
 import './style.css'
 
 export default function App() {
   return (
+    <ThemeProvider>
     <TaskProvider>
       <BrowserRouter basename={import.meta.env.PROD ? '/FishyTodo' : '/'}>
         <div className="app">
@@ -21,5 +23,6 @@ export default function App() {
         </div>
       </BrowserRouter>
     </TaskProvider>
+    </ThemeProvider>
   )
 }
