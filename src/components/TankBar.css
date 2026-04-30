@@ -28,54 +28,6 @@
     color: #999;
 }
 
-.tank-priority-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.tank-priority-wrapper::after {
-    content: '▾';
-    position: absolute;
-    right: 1.2rem;
-    font-size: 1.2rem;
-    pointer-events: none;
-}
-
-.tank-priority-wrapper.priority-low::after   { color: #2d6a4f; }
-.tank-priority-wrapper.priority-medium::after { color: #7d5a00; }
-.tank-priority-wrapper.priority-high::after  { color: #842029; }
-
-.tank-priority {
-    padding: 0.8rem 3.2rem 0.8rem 1.4rem;
-    border: 0.15rem solid;
-    border-radius: 12px;
-    outline: none;
-    font-size: 1.3rem;
-    font-weight: 500;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.tank-priority.priority-low {
-    background: #d4edda;
-    border-color: #a3cfb0;
-    color: #2d6a4f;
-}
-
-.tank-priority.priority-medium {
-    background: #fff3cd;
-    border-color: #f0c040;
-    color: #7d5a00;
-}
-
-.tank-priority.priority-high {
-    background: #f8d7da;
-    border-color: #f0a3a8;
-    color: #842029;
-}
 
 .tank-btn {
     padding: 0.8rem 1.6rem;
