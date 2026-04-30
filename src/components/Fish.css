@@ -24,6 +24,12 @@
   pointer-events: none;
 }
 
+.fish-roam.dimmed {
+  opacity: 0.2;
+  filter: drop-shadow(0 4px 8px rgba(110, 78, 58, 0.08)) saturate(0.4);
+  transition: opacity 0.3s, filter 0.3s;
+}
+
 .fish-inner {
   position: relative;
 }
