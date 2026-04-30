@@ -1,0 +1,118 @@
+.fish-legend {
+  position: absolute;
+  bottom: 3.2rem;
+  left: 3.2rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.legend-btn {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.legend-card {
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--shadow-md);
+  animation: fade-in 0.15s ease-out;
+  min-width: 22rem;
+}
+
+.legend-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.legend-subtitle {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.legend-fish {
+  width: 3.2rem;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.legend-top {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.legend-name {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
+.legend-mood {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  flex: 1;
+}
+
+.legend-time {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.speed-track {
+  height: 0.4rem;
+  background: var(--paper-warm);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.speed-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}

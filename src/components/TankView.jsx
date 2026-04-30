@@ -4,6 +4,7 @@ import TankBar from './TankBar'
 import Fish from './Fish'
 import { getFishImage } from '../utils/fishImages'
 import TaskModal from './TaskModal'
+import FishLegend from './FishLegend'
 import './TankView.css'
 
 export default function TankView() {
@@ -35,6 +36,7 @@ export default function TankView() {
   return (
     <div className="tank">
       <TankBar />
+      <FishLegend />
       {activeTasks.map(task => (
         <Fish
           key={task.id}
