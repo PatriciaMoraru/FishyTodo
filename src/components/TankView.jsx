@@ -47,14 +47,14 @@ export default function TankView() {
         ◎
       </button>
       {activeTasks.map(task => (
-        <Fish
-          key={task.id}
-          task={task}
-          paused={task.id === selectedTaskId}
-          completing={task.id === completingTaskId}
-          dimmed={focusMode && selectedTaskId !== null && task.id !== selectedTaskId}
-          onClick={() => handleFishClick(task.id)}
-        />
+          <Fish
+            key={task.id}
+            task={task}
+            paused={task.id === selectedTaskId || (focusMode && selectedTaskId !== null && task.id !== selectedTaskId)}
+            completing={task.id === completingTaskId}
+            dimmed={focusMode && selectedTaskId !== null && task.id !== selectedTaskId}
+            onClick={() => handleFishClick(task.id)}
+          />
       ))}
       {selectedTask && (
         <TaskModal
