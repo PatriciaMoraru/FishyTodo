@@ -1,0 +1,55 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.4rem;
+  height: 4.8rem;
+  background: var(--paper-card);
+  border-bottom: 1.5px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.4rem;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.nav-link {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-link:hover {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.nav-link.active {
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.theme-toggle {
+  font-size: 1.6rem;
+}
