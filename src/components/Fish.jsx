@@ -5,7 +5,7 @@ import { getFishImage, getFishSpeed } from '../utils/fishImages'
 const FISH_WIDTH = 120
 const FISH_HEIGHT = 80
 
-export default function Fish({ task, paused, completing, onClick }) {
+export default function Fish({ task, paused, completing, dimmed, onClick }) {
   const fishRef = useRef(null)
   const imgRef  = useRef(null)
   const pos = useRef(null)
@@ -58,8 +58,11 @@ export default function Fish({ task, paused, completing, onClick }) {
     return () => cancelAnimationFrame(rafId.current)
   }, [task.priority])
 
-  const containerClass = ['fish-roam', paused ? 'selected' : ''].filter(Boolean).join(' ')
-  const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
+const containerClass = ['fish-roam', paused ? 'selected' : '', dimmed ? 'dimmed' : '']
+  .filter(Boolean)
+  .join(' ')
+
+const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
 
   return (
     <div ref={fishRef} className={containerClass} onClick={onClick}>

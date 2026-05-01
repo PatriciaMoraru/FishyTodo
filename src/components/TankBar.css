@@ -7,10 +7,11 @@
     align-items: center;
     gap: 0.8rem;
     z-index: 10;
-    background: #fdfaf6;
+    background: var(--paper-card);
+    border: 1.5px solid var(--line);
     padding: 0.6rem 0.6rem 0.6rem 2rem;
     border-radius: 12px;
-    box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
 }
 
 .tank-input {
@@ -20,27 +21,31 @@
     outline: none;
     font-size: 1.4rem;
     background: transparent;
-    color: #555;
+    color: var(--ink);
     width: 40rem;
+    font-family: 'Patrick Hand', cursive;
 }
 
 .tank-input::placeholder {
-    color: #999;
+  color: var(--ink-soft);
+  opacity: 0.7;
 }
-
 
 .tank-btn {
     padding: 0.8rem 1.6rem;
-    border: 0.15rem solid #d47a43;
+    border: 0.15rem solid var(--accent);
     border-radius: 12px;
-    background: #e8935a;
-    color: white;
+    background: var(--accent);
+    color: var(--paper);
     font-size: 1.3rem;
+    font-family: 'Patrick Hand', cursive;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 .tank-btn:hover {
-    background: #d47a43;
+    background: var(--accent-soft);
+    border-color: var(--accent-soft);
+    box-shadow: var(--shadow-sm);
 }
