@@ -56,6 +56,9 @@ export default function TankView() {
             onClick={() => handleFishClick(task.id)}
           />
       ))}
+      <div className="fish-count">
+        🐠 {activeTasks.length} fish in tank
+      </div>
       {selectedTask && (
         <TaskModal
           task={selectedTask}

@@ -18,6 +18,17 @@
   pointer-events: none;
 }
 
+.fish-count {
+  position: absolute;
+  bottom: 3.2rem;
+  right: 3.2rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.6rem;
+  color: var(--ink-soft);
+  z-index: 10;
+  user-select: none;
+}
+
 .focus-toggle {
   position: absolute;
   bottom: 3.2rem;
