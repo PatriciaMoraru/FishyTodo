@@ -44,7 +44,7 @@
   bottom: -2.2rem;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--paper-card);
+  background: var(--tert);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.2rem 1.2rem;
