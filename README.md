@@ -8,9 +8,7 @@ A task manager where every task becomes a swimming fish. Add tasks, watch them s
 
 ## Screenshots
 
-> *(Add a screenshot or GIF here — drag an image into this file on GitHub or replace the line below)*
-
-![FishyTodo tank view](docs/screenshot-tank.png)
+![FishyTodo tank view](docs/fishytodo.gif)
 
 ---
 
