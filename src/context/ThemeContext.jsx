@@ -12,6 +12,9 @@ export function ThemeProvider({ children }) {
   const [sound, setSound] = useState(() =>
     localStorage.getItem('sound') !== 'false'
   )
+  const [listView, setListView] = useState(() =>
+    localStorage.getItem('listView') === 'true'
+  )
 
   useEffect(() => {
     document.body.dataset.theme = theme
@@ -26,6 +29,10 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('sound', sound)
   }, [sound])
 
+  useEffect(() => {
+    localStorage.setItem('listView', listView)
+  }, [listView])
+
   function toggleTheme() {
     setTheme(t => t === 'light' ? 'dark' : 'light')
   }
@@ -38,8 +45,12 @@ export function ThemeProvider({ children }) {
     setSound(s => !s)
   }
 
+  function toggleListView() {
+    setListView(l => !l)
+  }
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView }}>
       {children}
     </ThemeContext.Provider>
   )
