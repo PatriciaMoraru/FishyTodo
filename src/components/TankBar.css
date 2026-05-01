@@ -7,7 +7,7 @@
     align-items: center;
     gap: 0.8rem;
     z-index: 10;
-    background: var(--tert);
+    background: color-mix(in srgb, var(--tert) 40%, var(--paper-card));
     border: 1.5px solid var(--line);
     padding: 0.6rem 0.6rem 0.6rem 2rem;
     border-radius: 12px;

@@ -44,7 +44,7 @@
   bottom: -2.2rem;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--tert);
+  background: color-mix(in srgb, var(--tert) 50%, var(--paper-card));
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 0.2rem 1.2rem;
