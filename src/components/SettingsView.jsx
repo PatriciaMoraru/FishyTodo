@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { Fish, List } from 'lucide-react'
 import { useTheme } from '../context/ThemeContext'
+import { PALETTES, PALETTE_META } from '../utils/palettes'
 import './SettingsView.css'
 
 function Toggle({ on, onToggle, label }) {
@@ -17,7 +19,7 @@ function Toggle({ on, onToggle, label }) {
 }
 
 export default function SettingsView() {
-  const { theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView } = useTheme()
+  const { theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView, palette, setPalette } = useTheme()
 
   return (
     <div className="settings-view screen">
@@ -51,25 +53,45 @@ export default function SettingsView() {
           <Toggle on={focusMode} onToggle={toggleFocusMode} label="Toggle focus mode" />
         </div>
 
-        <div className="settings-row view-as-row">
-          <div className="settings-row-label">
-            <span className="row-name">view as</span>
-            <span className="row-desc">switch between tank and list</span>
+        <div className="settings-section">
+          <span className="row-name">tank colour</span>
+          <div className="swatch-group" role="group" aria-label="Tank colour palette">
+            {PALETTE_META.map(({ key, label }) => {
+              const p = PALETTES[key]
+              return (
+                <div key={key} className="swatch-item">
+                  <button
+                    className={`swatch ${palette === key ? 'active' : ''}`}
+                    onClick={() => setPalette(key)}
+                    aria-label={label}
+                    aria-pressed={palette === key}
+                  style={{
+                    background: `conic-gradient(from -45deg, ${p.accent} 0deg 120deg, ${p.sec} 120deg 240deg, ${p.tert} 240deg 360deg)`,
+                  }}
+                  />
+                  <span className="swatch-label">{label}</span>
+                </div>
+              )
+            })}
           </div>
+        </div>
+
+        <div className="settings-section">
+          <span className="row-name">view as</span>
           <div className="view-as-btns" role="group" aria-label="View mode">
             <button
               className={`view-btn ${!listView ? 'active' : ''}`}
               onClick={() => listView && toggleListView()}
               aria-pressed={!listView}
             >
-              🐠 tank
+              <Fish size={16} strokeWidth={1.8} /> tank
             </button>
             <button
               className={`view-btn ${listView ? 'active' : ''}`}
               onClick={() => !listView && toggleListView()}
               aria-pressed={listView}
             >
-              📋 list
+              <List size={16} strokeWidth={1.8} /> list
             </button>
           </div>
         </div>
