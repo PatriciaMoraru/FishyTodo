@@ -19,7 +19,7 @@
 .navbar-title {
   font-family: 'Caveat', cursive;
   font-size: 2.4rem;
-  color: var(--ink);
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -46,7 +46,7 @@
 
 .nav-link.active {
   background: var(--paper-warm);
-  color: var(--ink);
+  color: var(--accent);
   font-weight: 600;
 }
 
