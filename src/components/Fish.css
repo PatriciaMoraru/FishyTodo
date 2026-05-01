@@ -54,4 +54,15 @@
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
   pointer-events: none;
+  max-width: 16rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .fish-label {
+    font-size: 1.1rem;
+    padding: 0.2rem 0.8rem;
+    max-width: 12rem;
+  }
 }
