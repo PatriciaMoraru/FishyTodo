@@ -1,0 +1,112 @@
+.settings-view {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 6rem 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.settings-card {
+  width: 54rem;
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 3.6rem 4rem;
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-0.6deg);
+}
+
+.settings-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 1.6rem;
+  border-bottom: 1.5px dashed var(--line);
+  margin-bottom: 0.4rem;
+}
+
+.settings-title {
+  font-family: 'Caveat', cursive;
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.settings-back {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.settings-back:hover {
+  color: var(--ink);
+}
+
+/* ── rows ──────────────────────────────────────────── */
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.settings-row-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.row-name {
+  font-family: 'Caveat', cursive;
+  font-size: 2.4rem;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.row-desc {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+}
+
+/* ── toggle switch ──────────────────────────────────── */
+.toggle {
+  width: 5.6rem;
+  height: 3rem;
+  border-radius: 15px;
+  background: var(--paper-warm);
+  border: 1.5px solid var(--line);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.toggle.on {
+  background: var(--accent);
+  border-color: transparent;
+}
+
+.toggle .knob {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  transition: left 0.2s;
+  display: block;
+}
+
+.toggle.on .knob {
+  left: 2.8rem;
+}
