@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Fish as FishIcon } from 'lucide-react'
 import { useTaskContext } from '../context/TaskContext'
 import { useTheme } from '../context/ThemeContext'
 import TankBar from './TankBar'
@@ -58,7 +59,7 @@ export default function TankView() {
           />
       ))}
       <div className="fish-count">
-        🐠 {activeTasks.length} fish in tank
+        <FishIcon size={15} strokeWidth={1.8} /> {activeTasks.length} fish in tank
       </div>
       {selectedTask && (
         <TaskModal

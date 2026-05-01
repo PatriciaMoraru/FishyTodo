@@ -27,6 +27,9 @@
   color: var(--ink-soft);
   z-index: 10;
   user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .focus-toggle {
