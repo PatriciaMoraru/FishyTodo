@@ -2,11 +2,20 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const TaskContext = createContext()
 
+const PRIORITY_MIGRATION = { low: 'small', high: 'big' }
+
+function migrateTasks(tasks) {
+  return tasks.map(task => ({
+    ...task,
+    priority: PRIORITY_MIGRATION[task.priority] ?? task.priority,
+  }))
+}
+
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem('ITEMS')
     if (stored == null) return []
-    return JSON.parse(stored)
+    return migrateTasks(JSON.parse(stored))
   })
 
   useEffect(() => {
