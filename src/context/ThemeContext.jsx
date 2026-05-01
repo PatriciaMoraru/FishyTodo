@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { PALETTES } from '../utils/palettes'
 
 const ThemeContext = createContext()
 
@@ -14,6 +15,9 @@ export function ThemeProvider({ children }) {
   )
   const [listView, setListView] = useState(() =>
     localStorage.getItem('listView') === 'true'
+  )
+  const [palette, setPalette] = useState(() =>
+    localStorage.getItem('palette') ?? 'sunset'
   )
 
   useEffect(() => {
@@ -33,6 +37,14 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('listView', listView)
   }, [listView])
 
+  useEffect(() => {
+    const p = PALETTES[palette] ?? PALETTES.sunset
+    document.body.style.setProperty('--accent', p.accent)
+    document.body.style.setProperty('--sec', p.sec)
+    document.body.style.setProperty('--tert', p.tert)
+    localStorage.setItem('palette', palette)
+  }, [palette])
+
   function toggleTheme() {
     setTheme(t => t === 'light' ? 'dark' : 'light')
   }
@@ -50,7 +62,7 @@ export function ThemeProvider({ children }) {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView, palette, setPalette }}>
       {children}
     </ThemeContext.Provider>
   )
