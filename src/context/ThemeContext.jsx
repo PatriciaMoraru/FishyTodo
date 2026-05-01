@@ -9,6 +9,9 @@ export function ThemeProvider({ children }) {
   const [focusMode, setFocusMode] = useState(() =>
     localStorage.getItem('focusMode') === 'true'
   )
+  const [sound, setSound] = useState(() =>
+    localStorage.getItem('sound') !== 'false'
+  )
 
   useEffect(() => {
     document.body.dataset.theme = theme
@@ -19,6 +22,10 @@ export function ThemeProvider({ children }) {
     localStorage.setItem('focusMode', focusMode)
   }, [focusMode])
 
+  useEffect(() => {
+    localStorage.setItem('sound', sound)
+  }, [sound])
+
   function toggleTheme() {
     setTheme(t => t === 'light' ? 'dark' : 'light')
   }
@@ -27,8 +34,12 @@ export function ThemeProvider({ children }) {
     setFocusMode(f => !f)
   }
 
+  function toggleSound() {
+    setSound(s => !s)
+  }
+
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound }}>
       {children}
     </ThemeContext.Provider>
   )
