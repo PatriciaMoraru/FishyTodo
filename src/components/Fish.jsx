@@ -1,11 +1,13 @@
 import { useEffect, useRef } from 'react'
 import './Fish.css'
 import { getFishImage, getFishSpeed } from '../utils/fishImages'
+import { useSounds } from '../utils/useSounds'
 
 const FISH_WIDTH = 120
 const FISH_HEIGHT = 80
 
 export default function Fish({ task, paused, completing, dimmed, onClick }) {
+  const { playPop } = useSounds()
   const fishRef = useRef(null)
   const imgRef  = useRef(null)
   const pos = useRef(null)
@@ -64,8 +66,13 @@ const containerClass = ['fish-roam', paused ? 'selected' : '', dimmed ? 'dimmed'
 
 const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
 
+  function handleClick() {
+    playPop()
+    onClick()
+  }
+
   return (
-    <div ref={fishRef} className={containerClass} onClick={onClick}>
+    <div ref={fishRef} className={containerClass} onClick={handleClick}>
       <div className={innerClass}>
         <img ref={imgRef} src={getFishImage(task.priority)} alt={task.title} style={{ width: '100%', display: 'block' }} />
         <span className="fish-label">{task.title}</span>
