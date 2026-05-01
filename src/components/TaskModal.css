@@ -11,7 +11,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 36rem;
+  width: min(36rem, calc(100vw - 3.2rem));
   background: var(--paper-card);
   border: 1.5px solid var(--line);
   border-radius: 18px;
@@ -73,6 +73,16 @@
 .badge-high   { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
 
 [data-theme="dark"] .scrim { background: rgba(0, 0, 0, 0.55); }
+
+.ac-keyboard-hint {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  opacity: 0.6;
+  user-select: none;
+}
 [data-theme="dark"] .badge-low    { background: #1a3a2a; border-color: #3a7a5a; color: #88ccaa; }
 [data-theme="dark"] .badge-medium { background: #3a2e10; border-color: #9a7a20; color: #d4aa55; }
 [data-theme="dark"] .badge-high   { background: #3a1820; border-color: #9a3a48; color: #e08090; }

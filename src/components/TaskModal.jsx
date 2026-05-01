@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Check, X, Fish } from 'lucide-react'
 import './TaskModal.css'
 
@@ -11,11 +12,30 @@ const PRIORITY_LABEL = {
 
 export default function TaskModal({ task, fishImage, onComplete, onRelease }) {
   const badge = PRIORITY_LABEL[task.priority] ?? PRIORITY_LABEL.medium
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    cardRef.current?.focus()
+
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') onRelease()
+      if (e.key === 'Enter')  onComplete()
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [onComplete, onRelease])
 
   return (
     <>
       <div className="scrim" onClick={onRelease} />
-      <div className="action-card">
+      <div
+        className="action-card"
+        ref={cardRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Task: ${task.title}`}
+        tabIndex={-1}
+      >
         <button className="ac-close" onClick={onRelease} aria-label="Close"><X size={18} strokeWidth={2} /></button>
 
         <div className="ac-fish">
@@ -44,6 +64,7 @@ export default function TaskModal({ task, fishImage, onComplete, onRelease }) {
             </span>
           </button>
         </div>
+        <p className="ac-keyboard-hint">↵ complete · esc release</p>
       </div>
     </>
   )
