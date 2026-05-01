@@ -58,8 +58,11 @@ export default function Fish({ task, paused, completing, dimmed, onClick }) {
     return () => cancelAnimationFrame(rafId.current)
   }, [task.priority])
 
-  const containerClass = ['fish-roam', paused ? 'selected' : '', dimmed ? 'dimmed' : ''].filter(Boolean).join(' ')
-  const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
+const containerClass = ['fish-roam', paused ? 'selected' : '', dimmed ? 'dimmed' : '']
+  .filter(Boolean)
+  .join(' ')
+
+const innerClass = completing ? 'fish-inner completing' : 'fish-inner'
 
   return (
     <div ref={fishRef} className={containerClass} onClick={onClick}>
