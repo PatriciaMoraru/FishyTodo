@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import { useTaskContext } from '../context/TaskContext'
+import { useSounds } from '../utils/useSounds'
 import PriorityPicker from './PriorityPicker'
 import './TankBar.css'
 
 export default function TankBar() {
     const { addTask } = useTaskContext()
+    const { playSplash } = useSounds()
     const [input, setInput] = useState('')
     const [priority, setPriority] = useState('medium')
 
     function handleRelease() {
         if (input.trim() === '') return
         addTask(input.trim(), priority)
+        playSplash()
         setInput('')
         setPriority('medium')
     }
