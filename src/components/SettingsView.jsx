@@ -17,7 +17,7 @@ function Toggle({ on, onToggle, label }) {
 }
 
 export default function SettingsView() {
-  const { theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound } = useTheme()
+  const { theme, toggleTheme, focusMode, toggleFocusMode, sound, toggleSound, listView, toggleListView } = useTheme()
 
   return (
     <div className="settings-view screen">
@@ -49,6 +49,29 @@ export default function SettingsView() {
             <span className="row-desc">one fish at a time</span>
           </div>
           <Toggle on={focusMode} onToggle={toggleFocusMode} label="Toggle focus mode" />
+        </div>
+
+        <div className="settings-row view-as-row">
+          <div className="settings-row-label">
+            <span className="row-name">view as</span>
+            <span className="row-desc">switch between tank and list</span>
+          </div>
+          <div className="view-as-btns" role="group" aria-label="View mode">
+            <button
+              className={`view-btn ${!listView ? 'active' : ''}`}
+              onClick={() => listView && toggleListView()}
+              aria-pressed={!listView}
+            >
+              🐠 tank
+            </button>
+            <button
+              className={`view-btn ${listView ? 'active' : ''}`}
+              onClick={() => !listView && toggleListView()}
+              aria-pressed={listView}
+            >
+              📋 list
+            </button>
+          </div>
         </div>
       </div>
     </div>

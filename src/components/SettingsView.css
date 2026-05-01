@@ -110,3 +110,37 @@
 .toggle.on .knob {
   left: 2.8rem;
 }
+
+/* ── view-as buttons ────────────────────────────────── */
+.view-as-row {
+  border-bottom: none;
+}
+
+.view-as-btns {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.view-btn {
+  padding: 0.7rem 1.8rem;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-warm);
+  color: var(--ink-soft);
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.view-btn.active {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(200, 90, 58, 0.28);
+}
+
+.view-btn:not(.active):hover {
+  background: var(--paper-card);
+  color: var(--ink);
+}
