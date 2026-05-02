@@ -205,3 +205,8 @@ body {
   60%  { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
   100% { transform: translate(-50%, -50%) scale(1);    opacity: 1; }
 }
+
+@keyframes title-bob {
+  0%, 100% { transform: translateY(0)    rotate(-1deg); }
+  50%       { transform: translateY(-8px) rotate(1deg);  }
+}
