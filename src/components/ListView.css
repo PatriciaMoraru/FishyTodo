@@ -1,8 +1,56 @@
 .list-view {
   height: 100%;
   overflow-y: auto;
+}
+
+.list-inner {
+  max-width: 72rem;
+  margin: 0 auto;
   padding: 3.2rem 4rem;
 }
+
+/* ── filter bar ──────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--line);
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.filter-btn:hover {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+/* active state inherits the priority badge colours */
+.filter-btn--active.priority-tiny   { background: #e8f5e9; border-color: #c8e6c9; color: #2e7d32; }
+.filter-btn--active.priority-small  { background: #d4edda; border-color: #a3cfb0; color: #2d6a4f; }
+.filter-btn--active.priority-medium { background: #fff3cd; border-color: #f0c040; color: #7d5a00; }
+.filter-btn--active.priority-big    { background: #ffe0cc; border-color: #f0a875; color: #8b4513; }
+.filter-btn--active.priority-whale  { background: #f8d7da; border-color: #f0a3a8; color: #842029; }
+.filter-btn--active:not([class*="priority-"]) {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: transparent;
+}
+
+[data-theme="dark"] .filter-btn--active.priority-tiny   { background: #1a2e1a; border-color: #3a6a3a; color: #88cc88; }
+[data-theme="dark"] .filter-btn--active.priority-small  { background: #1a2e22; border-color: #3a6a4e; color: #88ccaa; }
+[data-theme="dark"] .filter-btn--active.priority-medium { background: #2e2510; border-color: #6a5510; color: #d4aa55; }
+[data-theme="dark"] .filter-btn--active.priority-big    { background: #2e1e10; border-color: #8b4a20; color: #d48055; }
+[data-theme="dark"] .filter-btn--active.priority-whale  { background: #2e1218; border-color: #8b2a38; color: #e07080; }
 
 .list-empty {
   font-family: 'Patrick Hand', cursive;
@@ -17,8 +65,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 72rem;
-  margin: 0 auto;
 }
 
 .task-item {
