@@ -44,9 +44,94 @@
   color: var(--ink);
 }
 
+/* ── daily check-in card ─────────────────────────── */
+.checkin-card {
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 1.8rem;
+  padding: 2.4rem 2.8rem;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-0.3deg);
+  margin-bottom: 2.4rem;
+}
+
+.checkin-date {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+
+.checkin-prompt {
+  font-family: 'Caveat', cursive;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.05;
+  margin-bottom: 2rem;
+}
+
+.checkin-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.mood-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.4rem 0.8rem 1rem;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+}
+
+.mood-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--mood-color);
+}
+
+.mood-btn--selected {
+  border-color: var(--mood-color);
+  border-width: 2.5px;
+}
+
+.mood-btn-icon {
+  color: var(--mood-color);
+}
+
+.mood-btn-label {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink);
+}
+
 /* ── responsive ──────────────────────────────────── */
 @media (max-width: 600px) {
   .mood-reef-inner {
     padding: 2rem 1.6rem;
+  }
+
+  .checkin-card {
+    padding: 1.8rem 1.6rem;
+    transform: none;
+  }
+
+  .checkin-options {
+    gap: 0.6rem;
+  }
+
+  .mood-btn {
+    padding: 1.2rem 0.4rem 0.8rem;
+  }
+
+  .mood-btn-label {
+    font-size: 1.2rem;
   }
 }
