@@ -1,0 +1,179 @@
+/* ── landing page ────────────────────────────────── */
+.landing {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, var(--paper-warm) 0%, var(--paper) 70%);
+  overflow: hidden;
+  animation: fade-in 0.4s ease-out;
+}
+
+/* ── decorative fish ─────────────────────────────── */
+.landing-fish {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.landing-fish--tl {
+  width: 20rem;
+  top: 9rem;
+  left: 8rem;
+  opacity: 0.5;
+  transform: rotate(-8deg);
+}
+
+/* top-right — faces left */
+.landing-fish--tr {
+  width: 14rem;
+  top: 7rem;
+  right: 7rem;
+  opacity: 0.45;
+  transform: scaleX(-1) rotate(5deg);
+}
+
+.landing-fish--br {
+  width: 17rem;
+  bottom: 14rem;
+  right: 9rem;
+  opacity: 0.5;
+  transform: scaleX(-1) rotate(6deg);
+}
+
+.landing-fish--bl {
+  width: 11rem;
+  bottom: 11rem;
+  left: 10rem;
+  opacity: 0.45;
+  transform: rotate(-12deg);
+}
+
+/* small accent fish, mid-left */
+.landing-fish--mid {
+  width: 8rem;
+  top: 52%;
+  left: 5rem;
+  opacity: 0.35;
+  transform: rotate(4deg);
+}
+
+/* tiny fish near the bottom centre-right */
+.landing-fish--bot {
+  width: 9rem;
+  bottom: 9rem;
+  left: 50%;
+  margin-left: 14rem;
+  opacity: 0.38;
+  transform: scaleX(-1) rotate(-6deg);
+}
+
+/* ── centre content ──────────────────────────────── */
+.landing-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: min(64rem, 90%);
+  z-index: 2;
+}
+
+.landing-title {
+  font-family: 'Caveat', cursive;
+  font-size: min(18vw, 16rem);
+  line-height: 0.95;
+  letter-spacing: 0.1rem;
+  color: var(--ink);
+  animation: title-bob 6s ease-in-out infinite;
+}
+
+.landing-tagline {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2.4rem;
+  color: var(--ink-soft);
+  margin-top: 0.8rem;
+  margin-bottom: 4rem;
+  line-height: 1.4;
+}
+
+.landing .landing-cta {
+  font-size: 3.8rem;
+  padding: 1.4rem 7rem;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+}
+
+.landing .landing-cta:hover {
+  transform: rotate(-1.5deg) translateY(-1px);
+}
+
+.landing .landing-cta:active {
+  transform: rotate(-1.5deg) translateY(1px);
+}
+
+.landing .landing-cta:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  transform: rotate(-1.5deg) translateY(-1px);
+}
+
+.landing-subtitle {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  margin-top: 3.6rem;
+  opacity: 0.65;
+}
+
+/* ── bottom wave decoration ──────────────────────── */
+.landing-waves {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 0;
+  width: 100%;
+  height: 10rem;
+}
+
+/* ── responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .landing-fish--tl {
+    width: 12rem;
+    top: 4rem;
+    left: 2rem;
+  }
+
+  .landing-fish--tr {
+    width: 9rem;
+    top: 4rem;
+    right: 2rem;
+  }
+
+  .landing-fish--br {
+    width: 10rem;
+    bottom: 10rem;
+    right: 2rem;
+  }
+
+  /* hide the more crowded extras on small screens */
+  .landing-fish--bl,
+  .landing-fish--mid,
+  .landing-fish--bot {
+    display: none;
+  }
+
+  .landing-tagline {
+    font-size: 1.8rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .landing .landing-cta {
+    font-size: 3.8rem;
+    padding: 1.4rem 5.6rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .landing-cta {
+    font-size: 2.4rem;
+    padding: 1rem 3rem;
+  }
+}
