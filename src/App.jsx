@@ -6,6 +6,7 @@ import SettingsView from './components/SettingsView'
 import LandingView from './components/LandingView'
 import { TaskProvider } from './context/TaskContext'
 import { ThemeProvider, useTheme } from './context/ThemeContext'
+import { MoodProvider } from './context/MoodContext'
 import './App.css'
 import './style.css'
 
@@ -29,6 +30,7 @@ export default function App() {
   return (
     <ThemeProvider>
     <TaskProvider>
+    <MoodProvider>
       <BrowserRouter basename={import.meta.env.PROD ? '/FishyTodo' : '/'}>
         <Routes>
           <Route path="/" element={<LandingView />} />
@@ -38,6 +40,7 @@ export default function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+    </MoodProvider>
     </TaskProvider>
     </ThemeProvider>
   )
