@@ -26,7 +26,7 @@ export default function SettingsView() {
       <div className="settings-card">
         <div className="settings-header">
           <h1 className="settings-title">settings</h1>
-          <Link to="/" className="settings-back">← back to tank</Link>
+          <Link to="/tank" className="settings-back">← back to tank</Link>
         </div>
 
         <div className="settings-row">
