@@ -1,0 +1,6 @@
+/* ── mood reef page ──────────────────────────────── */
+.mood-reef {
+  padding: 3.2rem;
+  overflow-y: auto;
+  height: 100%;
+}

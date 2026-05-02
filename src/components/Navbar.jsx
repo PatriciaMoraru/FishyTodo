@@ -14,6 +14,9 @@ export default function Navbar() {
         <NavLink to="/tank" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Tank
         </NavLink>
+        <NavLink to="/mood" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+          Mood Reef
+        </NavLink>
         <NavLink to="/settings" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
           Settings
         </NavLink>
