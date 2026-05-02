@@ -1,6 +1,52 @@
 /* ── mood reef page ──────────────────────────────── */
 .mood-reef {
-  padding: 3.2rem;
-  overflow-y: auto;
   height: 100%;
+  overflow-y: auto;
+  background: var(--paper);
+}
+
+.mood-reef-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3.2rem 4rem;
+}
+
+/* ── header ──────────────────────────────────────── */
+.mood-reef-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1.5px dashed var(--line);
+}
+
+.mood-reef-title {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(3.6rem, 6vw, 5.6rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+  transform: rotate(-1deg);
+  display: inline-block;
+}
+
+.mood-reef-back {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.mood-reef-back:hover {
+  color: var(--ink);
+}
+
+/* ── responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .mood-reef-inner {
+    padding: 2rem 1.6rem;
+  }
 }
