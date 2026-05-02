@@ -43,6 +43,10 @@
   margin-bottom: 1.6rem;
 }
 
+.action-card .ac-fish > div {
+  min-width: 0;
+}
+
 .action-card .ac-fish img {
   width: 6.4rem;
   height: auto;
@@ -53,6 +57,8 @@
   font-size: 2.6rem;
   line-height: 1.05;
   color: var(--ink);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .action-card .ac-meta {
