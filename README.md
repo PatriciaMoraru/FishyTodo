@@ -1,4 +1,4 @@
-# 🐠 FishyTodo
+# FishyTodo
 
 A task manager where every task becomes a swimming fish. Add tasks, watch them swim around your tank, click a fish to complete it, and watch it float away.
 
@@ -13,6 +13,11 @@ A task manager where every task becomes a swimming fish. Add tasks, watch them s
 ---
 
 ## Features
+
+### Landing Page
+- Welcoming intro screen with animated title and decorative fish
+- "Let's swim →" CTA navigates to the main tank
+- Soft wave decoration and warm radial gradient background
 
 ### Fish Tank
 - Every active task spawns as a swimming fish in a full-screen animated tank
@@ -38,6 +43,14 @@ Five priority levels, each with a distinct fish sprite:
 - **Release back** — returns fish to the tank
 - Keyboard shortcuts: `Enter` to complete, `Escape` to release
 
+### Mood Reef
+- Daily emotional check-in with 5 mood options: Great, Good, Okay, Meh, Rough
+- Each mood uses a weather-themed Lucide icon and a distinct colour
+- 7-day weekly strip (Mon–Sun) showing mood markers for each day
+- Tap any past day to revisit and update its mood
+- Future days are disabled — you can only log what has happened
+- All mood data persisted to `localStorage` keyed by date (`YYYY-MM-DD`)
+
 ### Settings Panel
 - **Dark mode** — switches to a deep-sea environment with purple tones
 - **Sound** — subtle splash, bubble pop, and completion chime (Web Audio API, no files)
@@ -50,7 +63,8 @@ Five priority levels, each with a distinct fish sprite:
 - Shows fish image, task name, priority badge, complete and remove buttons
 
 ### Persistence
-- All tasks saved to `localStorage`
+- All tasks saved to `localStorage` under key `ITEMS`
+- All mood entries saved to `localStorage` under key `MOODS`
 - All settings (theme, sound, focus mode, palette, view mode) persisted across sessions
 
 ---
@@ -66,6 +80,12 @@ Five priority levels, each with a distinct fish sprite:
 1. Click any swimming fish to pause it
 2. In the modal, click **Mark as done** (or press `Enter`)
 3. The fish floats upward and disappears
+
+**Logging a mood**
+1. Click **Mood Reef** in the navbar
+2. Select one of the 5 mood options for today
+3. View the weekly strip to see your mood history
+4. Tap any past day to update its mood
 
 **Switching themes / settings**
 1. Click **Settings** in the navbar
@@ -124,16 +144,19 @@ npm run deploy
 src/
 ├── assets/          # Fish sprite images (fish1–fish7.png)
 ├── components/
-│   ├── Fish.jsx         # Animated fish component (requestAnimationFrame)
-│   ├── FishLegend.jsx   # Priority guide card
-│   ├── ListView.jsx     # List-view fallback
-│   ├── Navbar.jsx       # Navigation + theme toggle
-│   ├── PriorityPicker.jsx  # Custom priority dropdown
-│   ├── SettingsView.jsx # Settings panel
-│   ├── TankBar.jsx      # Task input bar
-│   ├── TankView.jsx     # Main fish tank view
-│   └── TaskModal.jsx    # Task detail modal
+│   ├── Fish.jsx           # Animated fish component (requestAnimationFrame)
+│   ├── FishLegend.jsx     # Priority guide card
+│   ├── LandingView.jsx    # Welcome/intro landing page
+│   ├── ListView.jsx       # List-view fallback
+│   ├── MoodReefView.jsx   # Mood tracker page
+│   ├── Navbar.jsx         # Navigation + theme toggle
+│   ├── PriorityPicker.jsx # Custom priority dropdown
+│   ├── SettingsView.jsx   # Settings panel
+│   ├── TankBar.jsx        # Task input bar
+│   ├── TankView.jsx       # Main fish tank view
+│   └── TaskModal.jsx      # Task detail modal
 ├── context/
+│   ├── MoodContext.jsx  # Mood state + localStorage
 │   ├── TaskContext.jsx  # Task state + localStorage
 │   └── ThemeContext.jsx # Theme, palette, focus, sound state
 └── utils/
