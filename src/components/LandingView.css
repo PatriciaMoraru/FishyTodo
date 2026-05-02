@@ -4,7 +4,7 @@
   inset: 0;
   background: radial-gradient(ellipse at top, var(--paper-warm) 0%, var(--paper) 70%);
   overflow: hidden;
-  animation: fade-in 0.4s ease-out;
+  animation: fade-in 0.15s ease-out;
 }
 
 /* ── decorative fish ─────────────────────────────── */
@@ -18,7 +18,7 @@
   width: 20rem;
   top: 9rem;
   left: 8rem;
-  opacity: 0.5;
+  opacity: 0.7;
   transform: rotate(-8deg);
 }
 
@@ -27,7 +27,7 @@
   width: 14rem;
   top: 7rem;
   right: 7rem;
-  opacity: 0.45;
+  opacity: 0.65;
   transform: scaleX(-1) rotate(5deg);
 }
 
@@ -35,7 +35,7 @@
   width: 17rem;
   bottom: 14rem;
   right: 9rem;
-  opacity: 0.5;
+  opacity: 0.7;
   transform: scaleX(-1) rotate(6deg);
 }
 
@@ -43,7 +43,7 @@
   width: 11rem;
   bottom: 11rem;
   left: 10rem;
-  opacity: 0.45;
+  opacity: 0.65;
   transform: rotate(-12deg);
 }
 
@@ -52,7 +52,7 @@
   width: 8rem;
   top: 52%;
   left: 5rem;
-  opacity: 0.35;
+  opacity: 0.55;
   transform: rotate(4deg);
 }
 
@@ -62,7 +62,7 @@
   bottom: 9rem;
   left: 50%;
   margin-left: 14rem;
-  opacity: 0.38;
+  opacity: 0.58;
   transform: scaleX(-1) rotate(-6deg);
 }
 
