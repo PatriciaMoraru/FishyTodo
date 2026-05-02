@@ -16,8 +16,8 @@ export const speedByPriority = {
   tiny:   0.8,
   small:  1.3,
   medium: 2,
-  big:    2.6,
-  whale:  3.2,
+  big:    2.2,
+  whale:  2.6,
 }
 
 export function getFishImage(priority) {
