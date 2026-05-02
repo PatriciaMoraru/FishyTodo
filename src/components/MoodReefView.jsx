@@ -76,18 +76,20 @@ export default function MoodReefView() {
 
           <div className="week-days">
             {week.map(({ dateKey, label, moodIndex }) => {
-              const isActive  = dateKey === activeDay
+              const isActive    = dateKey === activeDay
               const isWeekToday = dateKey === todayKey
-              const mood      = moodIndex !== null ? MOODS[moodIndex] : null
-              const Icon      = mood ? MOOD_ICONS[moodIndex] : null
+              const isFuture    = dateKey > todayKey
+              const mood        = moodIndex !== null ? MOODS[moodIndex] : null
+              const Icon        = mood ? MOOD_ICONS[moodIndex] : null
 
               return (
                 <button
                   key={dateKey}
-                  className={`day-btn ${isActive ? 'day-btn--active' : ''} ${isWeekToday ? 'day-btn--today' : ''}`}
+                  className={`day-btn ${isActive ? 'day-btn--active' : ''} ${isWeekToday ? 'day-btn--today' : ''} ${isFuture ? 'day-btn--future' : ''}`}
                   style={mood ? { '--mood-color': mood.color } : {}}
-                  onClick={() => setActiveDay(dateKey)}
-                  aria-label={`${label}${mood ? `, mood: ${mood.label}` : ', no mood logged'}`}
+                  onClick={() => !isFuture && setActiveDay(dateKey)}
+                  disabled={isFuture}
+                  aria-label={`${label}${isFuture ? ', future date' : mood ? `, mood: ${mood.label}` : ', no mood logged'}`}
                   aria-pressed={isActive}
                 >
                   <div className="day-marker">
@@ -95,9 +97,9 @@ export default function MoodReefView() {
                       ? <Icon size={20} strokeWidth={1.6} className="day-marker-icon" />
                       : <span className="day-marker-empty">?</span>
                     }
+                    {isWeekToday && <span className="day-today-dot" aria-hidden="true" />}
                   </div>
                   <span className="day-label">{label}</span>
-                  {isWeekToday && <span className="day-today-dot" aria-hidden="true" />}
                 </button>
               )
             })}
