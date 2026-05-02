@@ -66,7 +66,7 @@ export default function SettingsView() {
                     aria-label={label}
                     aria-pressed={palette === key}
                   style={{
-                    background: `conic-gradient(from -45deg, ${p.accent} 0deg 120deg, ${p.sec} 120deg 240deg, ${p.tert} 240deg 360deg)`,
+                    background: `conic-gradient(from -45deg, ${p.tert} 0deg 120deg, ${p.sec} 120deg 240deg, ${p.accent} 240deg 360deg)`,
                   }}
                   />
                   <span className="swatch-label">{label}</span>
