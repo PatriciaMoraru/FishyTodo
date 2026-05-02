@@ -39,6 +39,44 @@
   z-index: 10;
 }
 
+.tank-filter {
+  position: absolute;
+  top: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 10;
+}
+
+.tank-filter-btn {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--line);
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.15s, background 0.15s, color 0.15s;
+}
+
+.tank-filter-btn:hover {
+  opacity: 1;
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.tank-filter-btn--active {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: transparent;
+  opacity: 1;
+}
+
 [data-theme="dark"] .tank {
   background:
     linear-gradient(180deg, #1a1426 0%, #261c38 55%, #2e2240 100%);

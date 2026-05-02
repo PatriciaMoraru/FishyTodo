@@ -10,6 +10,9 @@ import TaskModal from './TaskModal'
 import FishLegend from './FishLegend'
 import './TankView.css'
 
+const PRIORITY_ORDER = ['whale', 'big', 'medium', 'small', 'tiny']
+const PRIORITY_LABELS = { whale: 'Whale', big: 'Big', medium: 'Medium', small: 'Small', tiny: 'Tiny' }
+
 export default function TankView() {
   const { tasks, completeTask } = useTaskContext()
   const { focusMode, toggleFocusMode } = useTheme()
@@ -17,6 +20,7 @@ export default function TankView() {
   const activeTasks = tasks.filter(t => !t.completed)
   const [selectedTaskId, setSelectedTaskId] = useState(null)
   const [completingTaskId, setCompletingTaskId] = useState(null)
+  const [tankFilter, setTankFilter] = useState('all')
 
   const selectedTask = tasks.find(t => t.id === selectedTaskId) ?? null
 
@@ -51,16 +55,34 @@ export default function TankView() {
         ◎
       </button>
 
-      {activeTasks.map(task => (
+      {activeTasks.map(task => {
+        const filterDimmed = tankFilter !== 'all' && task.priority !== tankFilter
+        const focusDimmed  = focusMode && selectedTaskId !== null && task.id !== selectedTaskId
+        return (
           <Fish
             key={task.id}
             task={task}
             paused={task.id === selectedTaskId || (focusMode && selectedTaskId !== null && task.id !== selectedTaskId)}
             completing={task.id === completingTaskId}
-            dimmed={focusMode && selectedTaskId !== null && task.id !== selectedTaskId}
+            dimmed={focusDimmed || filterDimmed}
             onClick={() => handleFishClick(task.id)}
           />
-      ))}
+        )
+      })}
+
+      <div className="tank-filter" role="group" aria-label="Filter fish by priority">
+        {['all', ...PRIORITY_ORDER].map(f => (
+          <button
+            key={f}
+            className={`tank-filter-btn ${tankFilter === f ? 'tank-filter-btn--active' : ''}`}
+            onClick={() => setTankFilter(f)}
+            aria-pressed={tankFilter === f}
+          >
+            {f === 'all' ? 'all' : PRIORITY_LABELS[f].toLowerCase()}
+          </button>
+        ))}
+      </div>
+
       <div className="fish-count">
         <FishIcon size={15} strokeWidth={1.8} /> {activeTasks.length} fish in tank
       </div>
