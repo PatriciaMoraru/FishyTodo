@@ -3,6 +3,7 @@
   height: 100%;
   overflow-y: auto;
   background: var(--paper);
+  animation: fade-in 0.3s ease-out;
 }
 
 .mood-reef-inner {
@@ -100,6 +101,12 @@
 .mood-btn--selected {
   border-color: var(--mood-color);
   border-width: 2.5px;
+  background: color-mix(in srgb, var(--mood-color) 10%, var(--paper));
+}
+
+.mood-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .mood-btn-icon {
@@ -110,6 +117,125 @@
   font-family: 'Patrick Hand', cursive;
   font-size: 1.4rem;
   color: var(--ink);
+}
+
+/* ── weekly reef strip ───────────────────────────── */
+.week-strip {
+  margin-bottom: 2.4rem;
+}
+
+.week-strip-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.week-strip-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.week-strip-hint {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+}
+
+.week-days {
+  display: flex;
+  gap: 0.8rem;
+  background: var(--paper-warm);
+  border: 1.5px dashed var(--line-strong);
+  border-radius: 1.6rem;
+  padding: 1.6rem 1.2rem;
+}
+
+.day-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  border-radius: 1rem;
+  position: relative;
+  transition: background 0.15s;
+}
+
+.day-btn:hover {
+  background: var(--paper-card);
+}
+
+.day-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1rem;
+}
+
+.day-btn--active .day-marker {
+  border-color: var(--mood-color, var(--accent));
+  border-width: 2px;
+}
+
+.day-marker {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  background: var(--paper-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s;
+}
+
+.day-btn--active .day-marker,
+.day-btn:hover .day-marker {
+  border-color: var(--mood-color, var(--accent));
+}
+
+.day-marker-icon {
+  color: var(--mood-color);
+}
+
+.day-marker-empty {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.6rem;
+  color: var(--ink-soft);
+  opacity: 0.5;
+}
+
+.day-label {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+  text-transform: lowercase;
+}
+
+/* dot below today's label */
+.day-today-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  position: absolute;
+  bottom: -0.2rem;
+}
+
+/* ── dark mode tweaks ────────────────────────────── */
+[data-theme="dark"] .mood-btn--selected {
+  background: color-mix(in srgb, var(--mood-color) 15%, var(--paper-card));
+}
+
+[data-theme="dark"] .day-btn:hover {
+  background: var(--paper-warm);
 }
 
 /* ── responsive ──────────────────────────────────── */
@@ -133,5 +259,19 @@
 
   .mood-btn-label {
     font-size: 1.2rem;
+  }
+
+  .week-days {
+    gap: 0.4rem;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .day-marker {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .week-strip-hint {
+    display: none;
   }
 }
