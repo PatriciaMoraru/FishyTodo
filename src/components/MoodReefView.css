@@ -179,7 +179,7 @@
 }
 
 .day-btn--active .day-marker {
-  border-color: var(--mood-color, var(--accent));
+  border-color: var(--accent);
   border-width: 2px;
 }
 
@@ -193,11 +193,12 @@
   align-items: center;
   justify-content: center;
   transition: border-color 0.15s;
+  position: relative;
 }
 
 .day-btn--active .day-marker,
-.day-btn:hover .day-marker {
-  border-color: var(--mood-color, var(--accent));
+.day-btn:hover:not(.day-btn--future) .day-marker {
+  border-color: var(--accent);
 }
 
 .day-marker-icon {
@@ -218,14 +219,26 @@
   text-transform: lowercase;
 }
 
-/* dot below today's label */
+/* dot inside the circle, bottom-centre */
 .day-today-dot {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
   background: var(--accent);
   position: absolute;
-  bottom: -0.2rem;
+  bottom: 0.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* future days — greyed out, not clickable */
+.day-btn--future {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.day-btn--future:hover .day-marker {
+  border-color: var(--line);
 }
 
 /* ── dark mode tweaks ────────────────────────────── */
