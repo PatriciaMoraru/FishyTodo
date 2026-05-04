@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useTaskContext } from '../context/TaskContext'
 import './HistoryView.css'
 
@@ -8,7 +9,10 @@ export default function HistoryView() {
     return (
         <div className="list-view screen">
             <div className="list-inner">
+                <div className="history-header">
                 <h2 className="history-title">Completed Tasks</h2>
+                <Link to="/tank" className="history-back">← back to tank</Link>
+                </div>
                 <ul className="history-list">
                     {completedTasks.map(task => (
                         <li key={task.id} className="history-item">

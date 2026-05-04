@@ -10,6 +10,16 @@
 }
 
 /* ── history ─────────────────────────────────────── */
+
+.history-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 1.6rem;
+  border-bottom: 1.5px dashed var(--line);
+  margin-bottom: 0.4rem;
+}
+
 .history-title {
   font-family: 'Caveat', cursive;
   font-size: 3.6rem;
@@ -48,4 +58,16 @@
   font-size: 1.2rem;
   color: var(--ink-soft);
   white-space: nowrap;
+}
+
+.history-back {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.history-back:hover {
+  color: var(--ink);
 }
