@@ -32,7 +32,7 @@ export function TaskProvider({ children }) {
   function completeTask(id) {
     setTasks(current =>
       current.map(task =>
-        task.id === id ? { ...task, completed: true } : task
+        task.id === id ? { ...task, completed: true, completedAt: new Date().toISOString() } : task
       )
     )
   }

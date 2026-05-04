@@ -5,6 +5,7 @@ import ListView from './components/ListView'
 import SettingsView from './components/SettingsView'
 import LandingView from './components/LandingView'
 import MoodReefView from './components/MoodReefView'
+import HistoryView from './components/HistoryView'
 import { TaskProvider } from './context/TaskContext'
 import { ThemeProvider, useTheme } from './context/ThemeContext'
 import { MoodProvider } from './context/MoodContext'
@@ -38,6 +39,7 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route path="/tank" element={<HomeView />} />
             <Route path="/mood" element={<MoodReefView />} />
+            <Route path="/history" element={<HistoryView />} />
             <Route path="/settings" element={<SettingsView />} />
           </Route>
         </Routes>
