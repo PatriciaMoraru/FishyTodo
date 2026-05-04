@@ -14,7 +14,7 @@ function migrateTasks(tasks) {
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem('ITEMS')
-    if (stored == null) return []
+    if (!stored) return []
     return migrateTasks(JSON.parse(stored))
   })
 
