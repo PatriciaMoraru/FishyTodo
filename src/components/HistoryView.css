@@ -1,0 +1,49 @@
+.list-view {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.list-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3.2rem 4rem;
+}
+
+/* ── history ─────────────────────────────────────── */
+.history-title {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2.4rem;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+.history-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-card);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 1.2rem 1.6rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.history-task-title {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.7rem;
+  color: var(--ink);
+}
+
+.history-date {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
