@@ -13,7 +13,7 @@ export default function HistoryView() {
                     {completedTasks.map(task => (
                         <li key={task.id} className="history-item">
                             <span className="history-task-title">{task.title}</span>
-                            <span className="history-date">{new Date(task.completedAt).toLocaleDateString()}</span>
+                            <span className="history-date">{new Date(task.completedAt).toLocaleString()}</span>
                         </li>
                     ))}
                 </ul>
